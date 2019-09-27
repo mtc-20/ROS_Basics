@@ -5,7 +5,7 @@ The idea is to create basic functionality (nodes and launch files) all under a s
 <br>
 
 ## Packages
-Let's create a package `basic_ros` in the catkin workspace, as [follows](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+Packages are directories that house nodes of similar functionality. Let's create a package `basic_ros` in the catkin workspace, as [follows](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 ```
 catkin_create_pkg basic_ros std_msgs rospy roscpp
 ```
