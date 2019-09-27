@@ -1,8 +1,0 @@
-<launch>
-	<arg name="freq" default="3"/>
-
-	<node name="talker" pkg="basic_ros" type="talker2.py">
-		<param name="freq" value="$(arg freq)" />
-	</node>
-	<node name="listener" pkg="basic_ros" type="listener.py" output="screen"/>
-</launch>
