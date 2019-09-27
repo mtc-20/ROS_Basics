@@ -1,0 +1,5 @@
+<launch>
+  <node name="caller" pkg="basic_ros" type="call_bingo.py" />
+  <node pkg="basic_ros" type="talker.py" name="greeter" />
+ <node pkg="basic_ros" type="listener.py" name="listener" />
+</launch>
