@@ -40,6 +40,7 @@ A modified talker node that now accepts a ROS parameter to modify it's frequency
 ```
 rosrun basic_ros talker_param.py _freq:=3
 ```
+**NOTE:** *Make sure `rospy.get_param()` is declared after `rospy.init_node()`.*
 ## Launch Files
 Each node is normally executed using the rosrun command, which implies that a new terminal has to be opened for every node required. This is circumvented by a launch file, XML files that run the different nodes serially.
 <br> All the launch files are maintained in the **[launch](https://github.com/mtc-20/ROS_Basics/tree/master/launch) folder** in `basic_ros` and these are called using the `roslaunch` command.
