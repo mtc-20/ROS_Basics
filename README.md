@@ -14,7 +14,7 @@ The idea is to explain basic functionality (nodes and launch files) all under a 
 ## Packages
 Packages are directories that house nodes of similar functionality. Let's create a package `basic_ros` in the catkin workspace, as [follows](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 ```
-catkin_create_pkg basic_ros std_msgs rospy
+$ catkin_create_pkg basic_ros std_msgs rospy
 ```
 then run `catkin_make` and source the bash file 
 ```
@@ -33,11 +33,11 @@ chmod +x talker.py
 ```
 before executing them as follows
 ```
-rosrun basic_ros talker.py
+$ rosrun basic_ros talker.py
 ```
 Of course, remember that you need to have 'roscore' running in another terminal for 'rosrun' to work. Alternatively, go to the `scripts` directory and run 
 ```
-python basic_ros talker.py
+$ python basic_ros talker.py
 ```
 In case this didn't work, you may have to run `catkin_make`. 
 <br>
@@ -59,14 +59,14 @@ Another publisher node that publishes a random number between 1 and 100 as a str
 File - [talker_param.py](https://github.com/mtc-20/ROS_Basics/blob/master/scripts/talker_param.py) <br>
 A modified talker node that now accepts a ROS parameter to modify it's frequency of printing mesages to the server. By default, it will print 1 message every 2 seconds(0.5Hz). This parameter can be changed to 3Hz via command line as follows
 ```
-rosrun basic_ros talker_param.py _freq:=3
+$ rosrun basic_ros talker_param.py _freq:=3
 ```
 > **NOTE:** *Make sure `rospy.get_param()` is declared after `rospy.init_node()`.*
 ## Launch Files
 Each node is normally executed using the rosrun command, which implies that a new terminal has to be opened for every node required. This is circumvented by a launch file, XML files that run the different nodes serially.
 <br> All the launch files are maintained in the **[launch](https://github.com/mtc-20/ROS_Basics/tree/master/launch) folder** in `basic_ros` and these are called using the `roslaunch` command.
 ```
-roslaunch basic_ros chat.launch
+$ roslaunch basic_ros chat.launch
 ```
 - ### Chat
 File - [chat.launch](https://github.com/mtc-20/ROS_Basics/blob/master/launch/chat.launch) <br>
@@ -78,7 +78,7 @@ File - [chat_param.launch](https://github.com/mtc-20/ROS_Basics/blob/master/laun
 A simple launch file that 'launches' the *listener* and *talker_param* nodes, accepts arguments and outputs the listener node. Notice running this launch file sets the talker_param node's default frequency to 3 instead of 0.5Hz. Arguments can be provided in command line as follows
 
 ```
-roslaunch basic_ros chat_param.launch freq:=1
+$ roslaunch basic_ros chat_param.launch freq:=1
 ```
 ## PLANNED
 - [ ] ROS Messages
