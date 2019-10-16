@@ -11,6 +11,7 @@ The idea is to explain basic functionality (nodes and launch files) all under a 
 4. [Further Reading](#further-reading)
 <br>
 
+
 ## Packages
 Packages are directories that house nodes of similar functionality. Let's create a package `basic_ros` in the catkin workspace, as [follows](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 ```
@@ -21,9 +22,20 @@ then run `catkin_make` and source the bash file
 $ cd ~/catkin_ws`&& catkin_make
 $ source devel/setup.bash
 ```
+**Tip:** 
+*Instead of sourcing the bash file in every new terminal, you could add it to the ~/.bashrc file. This can also be done via command line as follows*
+```
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
+
 In the above line, `std_msgs rospy` are the package dependencies. Use the `rospack` command to find all the dependencies of a ROS package. <br>
+
+
 **Tip:** 
 *In case you forgot to specify certain dependencies or want to add more dependencies to a package, you can do so by modifying the `package.xml` to include them using the <build_depend> and <run_depend> tags.*
+
 
 ## Nodes
 Nodes in ROS can be compared to apps in an OS, they need to be executed to perform a certain or any operation. The most basic types of nodes are a publisher node and subscriber node, more details can be found in the [ROS Wiki](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29). 
@@ -40,7 +52,8 @@ Of course, remember that you need to have 'roscore' running in another terminal 
 $ python basic_ros talker.py
 ```
 In case this didn't work, you may have to run `catkin_make`. 
-<br>
+
+
 **Tip:**
 *A neat shortcut to check if your package has been built properly is to use the autocomplete feature with roscd or rosrun command. Basically type the first two or three letters of your package name and double press the tab button,if the autocomplete doesn't work, it implies that you either haven't sourced the workspace or havent built your packages yet.*
 - ### Talker
@@ -62,6 +75,8 @@ A modified talker node that now accepts a ROS parameter to modify it's frequency
 $ rosrun basic_ros talker_param.py _freq:=3
 ```
 > **NOTE:** *Make sure `rospy.get_param()` is declared after `rospy.init_node()`.*
+
+
 ## Launch Files
 Each node is normally executed using the rosrun command, which implies that a new terminal has to be opened for every node required. This is circumvented by a launch file, XML files that run the different nodes serially.
 <br> All the launch files are maintained in the **[launch](https://github.com/mtc-20/ROS_Basics/tree/master/launch) folder** in `basic_ros` and these are called using the `roslaunch` command.
@@ -80,8 +95,12 @@ A simple launch file that 'launches' the *listener* and *talker_param* nodes, ac
 ```
 $ roslaunch basic_ros chat_param.launch freq:=1
 ```
+
+
 ## PLANNED
 - [ ] ROS Messages
 - [ ] Useful tools: like rqt, roswtf, rospack, etc. 
+
+
 ## FURTHER READING
 - [rospy tutorials](http://wiki.ros.org/rospy_tutorials) 
