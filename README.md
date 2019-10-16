@@ -16,7 +16,12 @@ Packages are directories that house nodes of similar functionality. Let's create
 ```
 catkin_create_pkg basic_ros std_msgs rospy
 ```
-then run `catkin_make` and source the bash file. <br>In the above line, `std_msgs rospy` are the package dependencies. Use the `rospack` command to find all the dependencies of a ROS package. <br>
+then run `catkin_make` and source the bash file 
+```
+$ cd ~/catkin_ws`&& catkin_make
+$ source devel/setup.bash
+```
+In the above line, `std_msgs rospy` are the package dependencies. Use the `rospack` command to find all the dependencies of a ROS package. <br>
 **Tip:** 
 *In case you forgot to specify certain dependencies or want to add more dependencies to a package, you can do so by modifying the `package.xml` to include them using the <build_depend> and <run_depend> tags.*
 
