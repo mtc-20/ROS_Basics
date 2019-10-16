@@ -1,7 +1,13 @@
 # ROS_Basics
 A  bunch of scripts and maybe more to cover some basics in ROS.
-The idea is to create basic functionality (nodes and launch files) all under a single package.
-<br> MTC 0919
+The idea is to explain basic functionality (nodes and launch files) all under a single package. These are based on various tutorials from across the ROS Wiki, that tries to consolidate them under relevant headings.
+<br> MTC 161019
+
+## Sections
+1. [Packages](#packages)
+2. [Nodes](#nodes)
+3. [Launch Files](#launch-files)
+[Further Reading](#further-reading)
 <br>
 
 ## Packages
@@ -59,3 +65,7 @@ A simple launch file that 'launches' the *listener* and *talker_param* nodes, ac
 ```
 roslaunch basic_ros chat_param.launch freq:=1
 ```
+## PLANNED
+- [ ] ROS Messages
+## FURTHER READING
+- [rospy tutorials](http://wiki.ros.org/rospy_tutorials) 
