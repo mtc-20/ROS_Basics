@@ -1,25 +1,28 @@
 # ROS_Basics
-A  bunch of scripts and maybe more to cover some basics in ROS.
+A  bunch of scripts (Python) and maybe more to cover some basics in ROS.
 The idea is to explain basic functionality (nodes and launch files) all under a single package. These are based on various tutorials from across the ROS Wiki, that tries to consolidate them under relevant headings.
 <br> MTC 161019
+
 
 ## Sections
 1. [Packages](#packages)
 2. [Nodes](#nodes)
 3. [Launch Files](#launch-files)
-[Further Reading](#further-reading)
+4. [Further Reading](#further-reading)
 <br>
 
 ## Packages
 Packages are directories that house nodes of similar functionality. Let's create a package `basic_ros` in the catkin workspace, as [follows](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 ```
-catkin_create_pkg basic_ros std_msgs rospy roscpp
+catkin_create_pkg basic_ros std_msgs rospy
 ```
-then run `catkin_make` and source the bash file.
+then run `catkin_make` and source the bash file. <br>In the above line, `std_msgs rospy` are the package dependencies. Use the `rospack` command to find all the dependencies of a ROS package. <br>
+**Tip:** 
+*In case you forgot to specify certain dependencies or want to add more dependencies to a package, you can do so by modifying the `package.xml` to include them using the <build_depend> and <run_depend> tags.*
 
 ## Nodes
 Nodes in ROS can be compared to apps in an OS, they need to be executed to perform a certain or any operation. The most basic types of nodes are a publisher node and subscriber node, more details can be found in the [ROS Wiki](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29). 
-<br>All the nodes, written in python, can be found in the **[scripts](https://github.com/mtc-20/ROS_Basics/tree/master/scripts)  folder**. Just download the entire folder into the `basic_ros` package/directory, and make all the files are executable
+<br>All the nodes, written in python, can be found in the **[scripts](https://github.com/mtc-20/ROS_Basics/tree/master/scripts)  folder**. Just download the entire folder into the `basic_ros` package/directory, and make sure all the files are executable
 ```
 chmod +x talker.py
 ```
@@ -27,7 +30,14 @@ before executing them as follows
 ```
 rosrun basic_ros talker.py
 ```
-
+Of course, remember that you need to have 'roscore' running in another terminal for 'rosrun' to work. Alternatively, go to the `scripts` directory and run 
+```
+python basic_ros talker.py
+```
+In case this didn't work, you may have to run `catkin_make`. 
+<br>
+**Tip:**
+*A neat shortcut to check if your package has been built properly is to use the autocomplete feature with roscd or rosrun command. Basically type the first two or three letters of your package name and double press the tab button,if the autocomplete doesn't work, it implies that you either haven't sourced the workspace or havent built your packages yet.*
 - ### Talker
 File - [talker.py](https://github.com/mtc-20/ROS_Basics/blob/master/scripts/talker.py) <br>
 A simple publisher node that publishes a string message, "hello world" with a time stamp, at the rate of 1 per second to the *talker* topic.
@@ -46,7 +56,7 @@ A modified talker node that now accepts a ROS parameter to modify it's frequency
 ```
 rosrun basic_ros talker_param.py _freq:=3
 ```
-**NOTE:** *Make sure `rospy.get_param()` is declared after `rospy.init_node()`.*
+> **NOTE:** *Make sure `rospy.get_param()` is declared after `rospy.init_node()`.*
 ## Launch Files
 Each node is normally executed using the rosrun command, which implies that a new terminal has to be opened for every node required. This is circumvented by a launch file, XML files that run the different nodes serially.
 <br> All the launch files are maintained in the **[launch](https://github.com/mtc-20/ROS_Basics/tree/master/launch) folder** in `basic_ros` and these are called using the `roslaunch` command.
@@ -67,5 +77,6 @@ roslaunch basic_ros chat_param.launch freq:=1
 ```
 ## PLANNED
 - [ ] ROS Messages
+- [ ] Useful tools: like rqt, roswtf, rospack, etc. 
 ## FURTHER READING
 - [rospy tutorials](http://wiki.ros.org/rospy_tutorials) 
