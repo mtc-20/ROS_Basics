@@ -19,7 +19,7 @@ $ catkin_create_pkg basic_ros std_msgs rospy
 ```
 then run `catkin_make` and source the bash file 
 ```
-$ cd ~/catkin_ws`&& catkin_make
+$ cd ~/catkin_ws && catkin_make
 $ source devel/setup.bash
 ```
 **Tip:** 
