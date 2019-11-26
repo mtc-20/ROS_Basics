@@ -9,7 +9,9 @@ The idea is to explain basic functionality (nodes and launch files) all under a 
 2. [Nodes](#nodes)
 3. [Launch Files](#launch-files)
 4. [Further Reading](#further-reading)
-<br>
+
+
+These are all under the assumption that you've already created your catkin workspace. If not, follow this link [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace), before proceeding further.
 
 
 ## Packages
