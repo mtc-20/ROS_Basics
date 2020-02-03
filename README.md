@@ -100,9 +100,11 @@ $ roslaunch basic_ros chat_param.launch freq:=1
 
 
 ## PLANNED
-- [ ] ROS Messages
+- [ ] ROS Messages, Services, Action clients
+- [ ] More on rosparams
 - [x] ~~Useful tools: like rqt, roswtf, rospack, etc.~~ : shifted to a new repo, can be found [here](https://github.com/mtc-20/CheatSheets/blob/master/ROS_CS.md)
 
 ---
 ## FURTHER READING
 - [rospy tutorials](http://wiki.ros.org/rospy_tutorials) 
+- [ros parameters](http://wiki.ros.org/rospy/Overview/Parameter%20Server)
